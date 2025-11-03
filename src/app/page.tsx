@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { UnderConstructionContent } from "@/components/UnderConstructionContent";
+import { UnderConstructionContent } from "@/components/under-construction/UnderConstructionContent";
 
 export const metadata: Metadata = {
   title: "clamby.id - Fashion Brand Under Construction",
