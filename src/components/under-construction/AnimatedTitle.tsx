@@ -55,4 +55,3 @@ export function AnimatedTitle({ prefersReducedMotion }: AnimatedTitleProps) {
     </h1>
   );
 }
-
