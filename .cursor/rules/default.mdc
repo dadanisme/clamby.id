@@ -1,0 +1,134 @@
+---
+alwaysApply: true
+---
+
+# AI Development Guidelines
+
+## Project Overview
+
+This is a Next.js 16 florist landing page project using React 19, TypeScript, and Tailwind CSS 4. The project uses shadcn/ui components and follows strict architectural principles.
+
+## Core Technologies
+
+- **Framework**: Next.js 16 (App Router)
+- **UI Library**: React 19
+- **Language**: TypeScript (strict mode)
+- **Styling**: Tailwind CSS 4
+- **Components**: shadcn/ui (New York style)
+- **Icons**: Lucide React
+- **Fonts**: Geist Sans & Geist Mono
+
+## shadcn/ui Usage
+
+### MCP Integration
+
+- **ALWAYS** use the shadcn MCP tools when adding or modifying components
+- Before adding components, check available registries using `mcp_shadcn_get_project_registries`
+- Search for components using `mcp_shadcn_search_items_in_registries`
+- View component details with `mcp_shadcn_view_items_in_registries`
+- Get usage examples with `mcp_shadcn_get_item_examples_from_registries`
+- Use `mcp_shadcn_get_add_command_for_items` to get the correct CLI command
+- Run audit checklist after component changes with `mcp_shadcn_get_audit_checklist`
+
+### Component Guidelines
+
+- Components live in `components/ui/` directory
+- Use shadcn CLI to add components, never manually copy-paste
+- Extend shadcn components by importing from `@/components/ui` and wrapping/combining them
+- Maintain consistent styling with existing shadcn theme (New York style, neutral base color)
+
+## Architecture & Separation of Concerns
+
+### Directory Structure
+
+```
+app/              # Next.js App Router pages and layouts
+components/       # Reusable React components
+  ui/            # shadcn/ui components (auto-generated)
+lib/             # Utility functions and helpers
+hooks/           # Custom React hooks (if needed)
+public/          # Static assets
+```
+
+### Component Hierarchy
+
+- **Pages** (`app/page.tsx`): Route handlers and page-level logic
+- **Layouts** (`app/layout.tsx`): Shared layout structure
+- **Feature Components** (`components/`): Domain-specific components
+- **UI Components** (`components/ui/`): shadcn base components
+- **Utilities** (`lib/utils.ts`): Pure functions, helpers
+
+### Rules
+
+- Pages should only handle routing and data fetching
+- Business logic belongs in components or custom hooks
+- Pure utility functions go in `lib/` directory
+- UI components are reusable and composable
+- No direct DOM manipulation - use React patterns
+- Keep components small and focused (< 200 lines when possible)
+
+## Best Practices
+
+### TypeScript
+
+- Use strict type checking
+- Define proper interfaces/types for all props
+- Avoid `any` - use `unknown` if type is truly unknown
+- Use type inference where appropriate
+- Export types alongside components when reusable
+
+### React & Next.js
+
+- Use Server Components by default, Client Components only when needed (`"use client"`)
+- Implement proper error boundaries
+- Use Next.js Image component for all images
+- Leverage Next.js metadata API for SEO
+- Use proper loading and error states
+- Implement proper accessibility (ARIA labels, semantic HTML)
+
+### Styling
+
+- Use Tailwind utility classes - avoid custom CSS when possible
+- Follow mobile-first responsive design
+- Use CSS variables for theme colors (already configured)
+- Maintain consistent spacing scale
+- Support dark mode (use `dark:` prefix)
+
+### Code Quality
+
+- Write self-documenting code with clear naming
+- Keep functions pure when possible
+- Extract magic numbers/strings to constants
+- Use ESLint (configured with Next.js config)
+- Format code consistently (use Prettier if configured)
+
+### Performance
+
+- Optimize images with Next.js Image component
+- Use dynamic imports for large components
+- Implement proper caching strategies
+- Minimize bundle size
+- Use React.memo for expensive components when appropriate
+
+## File Naming Conventions
+
+- Components: PascalCase (`Button.tsx`, `HeroSection.tsx`)
+- Utilities: camelCase (`utils.ts`, `formatPrice.ts`)
+- Pages: lowercase (`page.tsx`, `layout.tsx`)
+- Hooks: camelCase with `use` prefix (`useCart.ts`)
+
+## Path Aliases
+
+- `@/components` → `components/`
+- `@/lib` → `lib/`
+- `@/hooks` → `hooks/`
+- `@/ui` → `components/ui/`
+
+## Additional Guidelines
+
+- Always check existing code before creating new patterns
+- Reuse existing utilities and components
+- Follow the existing code style and patterns
+- Test responsive behavior on mobile, tablet, desktop
+- Ensure accessibility (keyboard navigation, screen readers)
+- Maintain consistent design system (colors, spacing, typography)
