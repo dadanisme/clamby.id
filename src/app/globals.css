@@ -12,6 +12,17 @@
   }
 }
 
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
 :root {
   --background: oklch(0.9809 0.0025 228.7836);
   --foreground: oklch(0.3211 0 0);

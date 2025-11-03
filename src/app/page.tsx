@@ -1,28 +1,45 @@
-"use client";
+import type { Metadata } from "next";
+import { UnderConstructionContent } from "@/components/UnderConstructionContent";
 
-import { Instagram } from "lucide-react";
-import Link from "next/link";
+export const metadata: Metadata = {
+  title: "clamby.id - Fashion Brand Under Construction",
+  description:
+    "clamby.id website is currently under construction. Please check back soon for our latest fashion collections and updates.",
+  keywords: ["fashion", "clamby", "clothing", "style", "fashion brand"],
+  authors: [{ name: "clamby.id" }],
+  creator: "clamby.id",
+  publisher: "clamby.id",
+  openGraph: {
+    title: "clamby.id - Fashion Brand Under Construction",
+    description:
+      "clamby.id website is currently under construction. Please check back soon for our latest fashion collections and updates.",
+    url: "https://clamby.id",
+    siteName: "clamby.id",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "clamby.id - Fashion Brand",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "clamby.id - Fashion Brand Under Construction",
+    description:
+      "clamby.id website is currently under construction. Please check back soon for our latest fashion collections and updates.",
+    images: ["/og.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  metadataBase: new URL("https://clamby.id"),
+};
 
 export default function Home() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <main className="flex flex-col items-center justify-center gap-6 px-8 text-center">
-        <h1 className="text-5xl font-semibold tracking-tight text-foreground sm:text-6xl md:text-7xl">
-          clamby.id
-        </h1>
-        <p className="text-lg text-muted-foreground sm:text-xl">
-          Website Under Construction
-        </p>
-        <Link
-          href="https://instagram.com/clamby.app"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <Instagram className="h-5 w-5" />
-          <span className="text-sm sm:text-base">@clamby.app</span>
-        </Link>
-      </main>
-    </div>
-  );
+  return <UnderConstructionContent />;
 }
