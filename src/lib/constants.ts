@@ -37,4 +37,7 @@ export const ASSETS = {
   OG_IMAGE: "/og.png",
   ICON: "/icon.png",
   PLACEHOLDER_VIDEO: "/placeholder-video.mp4",
+  QR_CODE: "/qrcode.png",
+  APP_STORE_BADGE: "/apple.png",
+  GOOGLE_PLAY_BADGE: "/google-play.png",
 } as const;

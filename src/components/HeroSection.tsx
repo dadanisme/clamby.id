@@ -5,8 +5,9 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import { Sparkles, Palette, Calendar } from "lucide-react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { EXTERNAL_LINKS, ASSETS } from "@/lib/constants";
+import { ASSETS } from "@/lib/constants";
 import { AnimatedBackground } from "@/components/under-construction/AnimatedBackground";
 
 // Register ScrollTrigger plugin
@@ -173,45 +174,50 @@ export function HeroSection() {
             </div>
 
             {/* App Download Section */}
-            <div className="flex flex-col sm:flex-row items-center sm:items-stretch gap-6 pt-4">
-              {/* QR Code Placeholder */}
+            <div className="flex flex-col sm:flex-row items-center sm:items-stretch sm:justify-center lg:justify-start gap-6 pt-4">
+              {/* QR Code */}
               <div className="hidden sm:flex shrink-0">
-                <div className="h-full aspect-square bg-muted border-2 border-border rounded-lg flex items-center justify-center">
-                  <span className="text-xs text-muted-foreground font-medium">
-                    QR Code
-                  </span>
-                </div>
+                <Image
+                  src={ASSETS.QR_CODE}
+                  alt="QR Code - Scan to download Clamby app"
+                  width={120}
+                  height={120}
+                  className="w-auto h-auto object-contain rounded-lg"
+                />
               </div>
 
               {/* App Store Buttons */}
-              <div className="flex flex-col gap-3 w-full sm:w-auto">
+              <div className="flex flex-col gap-3 w-full sm:w-auto h-full justify-center">
                 <Button
                   size="lg"
-                  className="w-full sm:w-auto bg-foreground text-background hover:bg-foreground/90 h-14 px-8 text-base"
-                  asChild
+                  variant="secondary"
+                  className="w-full sm:w-auto bg-foreground text-background hover:bg-foreground/90 h-12 px-8 text-base flex items-center gap-3"
+                  disabled
                 >
-                  <a
-                    href={EXTERNAL_LINKS.APP_STORE}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Download on the App Store
-                  </a>
+                  <Image
+                    src={ASSETS.APP_STORE_BADGE}
+                    alt=""
+                    width={20}
+                    height={20}
+                    className="h-6 w-auto"
+                  />
+                  App Store
                 </Button>
 
                 <Button
                   size="lg"
                   variant="outline"
-                  className="w-full sm:w-auto h-14 px-8 text-base"
-                  asChild
+                  className="w-full sm:w-auto h-12 px-8 text-base flex items-center gap-3"
+                  disabled
                 >
-                  <a
-                    href={EXTERNAL_LINKS.GOOGLE_PLAY}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    GET IT ON Google Play
-                  </a>
+                  <Image
+                    src={ASSETS.GOOGLE_PLAY_BADGE}
+                    alt=""
+                    width={20}
+                    height={20}
+                    className="h-6 w-auto"
+                  />
+                  Google Play
                 </Button>
               </div>
             </div>
