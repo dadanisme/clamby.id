@@ -9,6 +9,7 @@ export const NAV_LINKS = {
   MILESTONES: "#milestones",
   REVIEWS: "#reviews",
   CONTACT_US: "#contact-us",
+  WAITLIST: "#waitlist",
 } as const;
 
 // External links
