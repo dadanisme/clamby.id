@@ -41,4 +41,5 @@ export const ASSETS = {
   QR_CODE: "/qrcode.png",
   APP_STORE_BADGE: "/apple.png",
   GOOGLE_PLAY_BADGE: "/google-play.png",
+  WELCOME_IMAGE: "/welcome.webp",
 } as const;
