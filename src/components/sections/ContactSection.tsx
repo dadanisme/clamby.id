@@ -19,23 +19,60 @@ export function ContactSection() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [statusMessage, setStatusMessage] = useState<{
+    type: "success" | "error" | null;
+    text: string;
+  }>({ type: null, text: "" });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isSubmitting) return;
 
     setIsSubmitting(true);
-    // TODO: Implement actual contact form submission logic
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setStatusMessage({ type: null, text: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      // Success
+      setStatusMessage({
+        type: "success",
+        text: "Thank you! Your message has been sent successfully.",
+      });
       setFormData({
         name: "",
         institution: "",
         email: "",
         message: "",
       });
-      // TODO: Show success message
-    }, 1000);
+
+      // Clear success message after 5 seconds
+      setTimeout(() => {
+        setStatusMessage({ type: null, text: "" });
+      }, 5000);
+    } catch (error) {
+      setStatusMessage({
+        type: "error",
+        text:
+          error instanceof Error
+            ? error.message
+            : "Failed to send message. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -136,6 +173,24 @@ export function ContactSection() {
                   onSubmit={handleSubmit}
                   className="space-y-6 flex-1 flex flex-col"
                 >
+                  {/* Status Message */}
+                  {statusMessage.type && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className={`p-4 rounded-lg border ${
+                        statusMessage.type === "success"
+                          ? "bg-green-50 dark:bg-green-950 border-green-200 dark:border-green-800 text-green-800 dark:text-green-200"
+                          : "bg-red-50 dark:bg-red-950 border-red-200 dark:border-red-800 text-red-800 dark:text-red-200"
+                      }`}
+                    >
+                      <p className="text-sm font-medium">
+                        {statusMessage.text}
+                      </p>
+                    </motion.div>
+                  )}
+
                   {/* Name and Institution */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
