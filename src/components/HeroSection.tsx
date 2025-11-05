@@ -153,7 +153,12 @@ export function HeroSection() {
                   App Store
                 </Button>
 
-                <Button
+                <p className="text-sm text-muted-foreground text-center">
+                  Requires iOS 16 and above
+                </p>
+
+                {/* Not available for Android yet */}
+                {/* <Button
                   size="lg"
                   variant="outline"
                   className="w-full sm:w-auto h-12 px-8 text-base flex items-center gap-3"
@@ -167,7 +172,7 @@ export function HeroSection() {
                     className="h-6 w-auto"
                   />
                   Google Play
-                </Button>
+                </Button> */}
               </div>
             </motion.div>
           </div>
