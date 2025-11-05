@@ -22,6 +22,9 @@ export const EXTERNAL_LINKS = {
   INSTAGRAM: "https://instagram.com/clamby",
   TWITTER: "https://twitter.com/clamby",
   FACEBOOK: "https://facebook.com/clamby",
+
+  // Contact
+  MAP: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1971.7601866007828!2d115.17530328595734!3d-8.737009289297397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd245ca9067d533%3A0xfd47d89b17f0fd0f!2sApple%20Developer%20Academy%20%40BINUS%20-%20Bali!5e0!3m2!1sen!2sid!4v1762326396888!5m2!1sen!2sid",
 } as const;
 
 // Brand information

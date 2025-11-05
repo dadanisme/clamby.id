@@ -4,6 +4,7 @@ import { AboutSection } from "@/components/sections/AboutSection";
 import { MilestonesSection } from "@/components/sections/MilestonesSection";
 import { ReviewSection } from "@/components/sections/ReviewSection";
 import { WaitlistSection } from "@/components/sections/WaitlistSection";
+import { ContactSection } from "@/components/sections/ContactSection";
 import { ASSETS } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -63,6 +64,7 @@ export default function Home() {
       <AboutSection />
       <MilestonesSection />
       <ReviewSection />
+      <ContactSection />
       <WaitlistSection />
     </>
   );
