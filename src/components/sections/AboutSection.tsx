@@ -5,6 +5,7 @@ import { useInView } from "motion/react";
 import { Sparkles, Lock } from "lucide-react";
 import { useRef } from "react";
 import Image from "next/image";
+import { ASSETS } from "@/lib/constants";
 
 interface Feature {
   icon: React.ReactNode;
@@ -122,7 +123,7 @@ export function AboutSection() {
             <div className="relative aspect-4/3 w-full overflow-hidden rounded-3xl shadow-2xl">
               {/* Main Image */}
               <Image
-                src="/hero.png"
+                src={ASSETS.HERO_IMAGE}
                 alt="Clamby team showcasing digital wardrobe"
                 fill
                 className="object-cover"

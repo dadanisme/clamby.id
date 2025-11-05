@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { NAV_LINKS, EXTERNAL_LINKS, ASSETS } from "@/lib/constants";
+import { NAV_LINKS, ASSETS } from "@/lib/constants";
 
 export function Header() {
   return (
