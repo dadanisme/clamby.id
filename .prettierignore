@@ -38,3 +38,6 @@ public/**/*.jpeg
 public/**/*.gif
 public/**/*.ico
 
+# Static HTML files (not part of React build)
+*.html
+

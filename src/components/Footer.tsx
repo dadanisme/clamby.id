@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Instagram, Twitter, Facebook } from "lucide-react";
-import { EXTERNAL_LINKS, ASSETS } from "@/lib/constants";
+import { EXTERNAL_LINKS, ASSETS, ROUTES } from "@/lib/constants";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,7 +14,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo/Brand */}
           <Link
-            href="/"
+            href={ROUTES.HOME}
             className="flex items-center hover:opacity-80 transition-opacity"
           >
             <Image
@@ -57,10 +57,26 @@ export function Footer() {
             </Link>
           </div>
 
-          {/* Copyright */}
-          <p className="text-sm text-accent-foreground">
-            © {currentYear} Clamby. All rights reserved.
-          </p>
+          {/* Copyright and Links */}
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-sm text-accent-foreground">
+              © {currentYear} Clamby. All rights reserved.
+            </p>
+            <div className="flex items-center gap-4">
+              <Link
+                href={ROUTES.PRIVACY_POLICY}
+                className="text-sm text-accent-foreground hover:text-accent-foreground/80 transition-colors underline"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href={ROUTES.TERMS_OF_USE}
+                className="text-sm text-accent-foreground hover:text-accent-foreground/80 transition-colors underline"
+              >
+                Terms of Use
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

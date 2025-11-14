@@ -3,13 +3,20 @@
  * Centralized location for all internal and external links, and assets
  */
 
-// Internal navigation links
+// Internal navigation links (hash links for sections)
 export const NAV_LINKS = {
   ABOUT_US: "#about-us",
   MILESTONES: "#milestones",
   REVIEWS: "#reviews",
   CONTACT_US: "#contact-us",
   WAITLIST: "#waitlist",
+} as const;
+
+// Internal route paths
+export const ROUTES = {
+  HOME: "/",
+  PRIVACY_POLICY: "/privacy-policy",
+  TERMS_OF_USE: "/terms-of-use",
 } as const;
 
 // External links
